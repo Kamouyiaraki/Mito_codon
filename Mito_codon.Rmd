@@ -1,0 +1,82 @@
+---
+title: 'Codon bias in *D. vexillum* mitochondrial genome '
+author:
+- affiliation: University of Aberdeen; Marine Laboratory, Marine scotland
+  name: Maria Kamouyiaros
+date: "`r format(Sys.time(), ' %d %B %Y')`"
+thanks: Replication files are available on the author's Github account (http://github.com/Kamouyiaraki)
+abstract: This document provides an introduction to some ideas relating to codon usage
+output:
+  html_document:
+    df_print: paged
+  pdf_document:
+    citation_package: natbib
+    keep_tex: truev
+    fig_caption: yes
+    latex_engine: pdflatex
+    template: F:/shared_Drive_Back-up/svm-latex-ms.tex
+fontsize: 12pt
+geometry: margin=1in
+keywords: mitogenome, ascidian, codon, bias
+fontfamily: mathpazo
+spacing: double
+bibliography: ~/Dropbox/master.bib
+biblio-style: apsr
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Rationale
+
+### Codon Bias
+
+The relative amount of synonymous codon usage (RSCU) (Sharp et al., 1986) and the effective number of codons (Nc) (Wright 1990) in protein coding genes are estimates of codon usage bias and diversity within and between protein coding genes. Trends in codon usage have been found to vary between organisms in a non-random, biased fashion, driven by either selection or mutational bias and genetic drift. 
+
+RSCU is defined by the number of times a codon for a particular amino acid (i.e. synonymous codons) is observed relative to the number of times that codon is expected under uniform codon usage. With the assumption of uniform usage, all possible codons for an amino acid would be used equally and each would have an expected RSCU score of 1. Alongside the use of RSCU, the effective number of codons (Nc) has become a standard measure of studying codon usage biases within and between genomes, as it allows for the identification of codon homozygosity with no prior knowledge of codon optima. Under the hypothesis of uniform codon usage, codon usage follows a predictable trend with the proportion of codons with a G or C in the 3rd base position (GC3). Expected Nc can be calculated using the equation by Wright 1990:
+
+$$N_{C} = 2 + GC3 + \frac{29}{GC3^{2} + (1-GC3^{2})} $$
+
+### Non-protein coding Gene Secondary Structure
+
+Additionally, within non-protein coding tRNAs, SNPs can result in changes to the secondary structure due to mismatch canonical base pairing within hairpin stem features, resulting in changes to arm lengths, hairpin loops, and/or the complete loss of secondary structure features. Within loop structures the effects of nucleotide mutations can have little to no effect as the nucleotides within these structures are unpaired. Therefore, transitions and transversions can lead to deviating secondary structural motifs from the “classical” (expected) cloverleaf tRNA structure. Diversity in tRNA structure can still result in maintained functionality at the tertiary level, as such some tRNA domains consist of both highly conserved and semi-conserved nucleotides. 
+
+
+### Codon-anticodon pairing
+
+
+
+### GC content
+
+Structural stability
+
+
+### Transitions vs Transversions
+
+
+
+### Synonymous vs Non-Synonymous mutations
+
+The relative frequency of synonymous and non-synonymous mutations were calculated as the number of synonymous mutations per synonymous site and number of non-synonymous mutations per non-synonymous site, respectively.
+
+
+
+## Data available
+
+```{r sourceStats, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+source("../../DivStats.R")
+library(knitr)
+library(kableExtra)
+
+```
+
+
+```{r sample_meta, echo=FALSE,message=FALSE, warning=FALSE}
+samples<-read.csv("../../Sample_metadata.csv", header = T)
+
+kable(samples, col.names = c("Country", "Locality", "Sample ID", "Sequence Length (bp)", "% Coverage", "Partial-COI Haplotype"), align = "l", caption = "Summary of all mitochondrial genome sequences. Total number of nucleotides (Sequence Length), percentage complete relative to the reference genome (% Coverage) and associated identified partial-COI barcode haplotype number as defined by Stefaniak et al. (2012) are presented. Partial-COI haplotypes 2-6 were identified sensu Smith et al., 2012 (JF738057- JF738060), and haplotype 1 was identified sensu Stefaniak et al., 2012 (JQ663509).") %>%
+    kable_styling(bootstrap_options = "striped", font_size = 12)
+
+```
