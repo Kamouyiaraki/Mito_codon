@@ -55,6 +55,7 @@ Structural stability
 
 ### Transitions vs Transversions
 
+expect transitions to be more under no bias (no restriction between changes to C's or G's)
 
 
 ### Synonymous vs Non-Synonymous mutations
